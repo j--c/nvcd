@@ -1,21 +1,31 @@
 M = {}
 
-M._stack = {}
+M.last_wd = nil
+
 
 M.change_working_dir = function(new_dir)
-    M._stack.prev_wd = vim.fn['getcwd']()
-    vim.api.nvim_set_current_dir(new_dir)
-end
+    local cur_wd = vim.fn['getcwd']()
+    local wd_msg = 'working dir set to: '
 
-M.load_nvim_config = function()
-    if not M._stack.prev_wd then
-        M.change_working_dir('~/.config/nvim')
-        vim.cmd.Ex(vim.fn['getcwd']())
+    if M.last_wd == nil then
+        -- no last working dir specified 
+        if new_dir ~= nil then
+            -- new working dir specified 
+            M.last_wd = cur_wd
+            vim.api.nvim_set_current_dir(new_dir)
+            print(wd_msg .. new_dir)
+        else
+            -- no new working dir specified 
+            vim.api.nvim_set_current_dir(cur_wd)
+            print(wd_msg .. cur_wd)
+        end
     else
-        M.change_working_dir(M._stack.prev_wd)
-        M._stack.prev_wd = nil
-        vim.cmd('pwd')
+        -- last working dir specified 
+        vim.api.nvim_set_current_dir(M.last_wd)
+        print(wd_msg .. M.last_wd)
+        M.last_wd = nil
     end
 end
+
 
 return M
