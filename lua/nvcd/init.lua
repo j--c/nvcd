@@ -53,6 +53,10 @@ end
 
 M = {}
 
+M.changed_message = 'Working directory set to: '
+M.changed_back_message = 'Working directory set back to: '
+M.invalid_directory_message = 'The path you set is not a directory.'
+
 M.prev_wd = nil
 
 M.has_previous_wd = function()
@@ -65,7 +69,7 @@ end
 
 M.change_working_dir = function(table)
     if M.has_previous_wd() then
-        print('changing back '.. M.prev_wd)
+        print(M.changed_back_message .. M.prev_wd)
         vim.api.nvim_set_current_dir(M.prev_wd)
         M.prev_wd = nil
     else
@@ -73,10 +77,10 @@ M.change_working_dir = function(table)
         print(new_wd_path)
         if new_wd_path ~= nil and is_directory(new_wd_path) then
             vim.api.nvim_set_current_dir(new_wd_path)
-            print('working dir set to: ' .. new_wd_path)
+            print(M.changed_message .. new_wd_path)
             M.prev_wd = table.cur_wd_path
         else
-            print('not a directory')
+            print(M.invalid_directory_message)
         end
     end
 end
