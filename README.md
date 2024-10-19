@@ -61,6 +61,7 @@ I also created a command to swap the working directory form my neovim config.
     :SwapCwdNvimConfig
 ```
 
+<br>
 
 #### Change the current Neovim working directory
 
