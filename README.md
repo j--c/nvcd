@@ -1,14 +1,22 @@
 # nvcd
 Simple plugin to help you more easily change the Neovim working directory.
 
-## Main Functions
+## Getting Started
 
-There are two main functions public functions:
+### Required Dependencies 
+None
 
-### change_working_dir_absolute({opts})
+### Installation 
 
-Use this function to change Neovim's working directory.
-
-### swap_working_dir_absolute({opts})
-
-Use this function to swap Neovim's working directory between two directories. 
+Using packer.nvim
+```
+    use ('j--c/nvcd')
+```
+Using vim-plug
+```
+    Plug 'j--c/nvcd'
+```
+Using dein
+```
+    call dein#add('nvim-lua/plenary.nvim')
+```
