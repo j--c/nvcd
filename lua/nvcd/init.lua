@@ -39,7 +39,7 @@ M.change_working_dir_absolute = function(opts)
     end
 end
 
-M.swap_working_dir = function(opts)
+M.swap_working_dir_absolute = function(opts)
     if M.prev_wd == nil then
         opts.cur_wd = vim.fn.getcwd()
         M.prev_wd = opts.cur_wd
