@@ -22,10 +22,13 @@ Using dein:
 ```
 
 ### Usage 
-Using Lua:<br>
 
-#### swap_working_dir_absolute
+<br>
+
+#### Swap the current Neovim working directory
 Swap between your current directory and a new directory you specify. Your current directory will be remembered, and will get swapped back the next time swap_working_dir is called. <br>
+
+<br>
 
 You can specify a new directory in the call.
 ```
@@ -34,6 +37,7 @@ You can specify a new directory in the call.
         new_wd = '~/.config/nvim'
     })
 ```
+<br>
 
 If you don't specify the new directory in the function call, nvcd will prompt you. 
 ```
@@ -42,9 +46,12 @@ If you don't specify the new directory in the function call, nvcd will prompt yo
         new_wd = nil
     })
 ```
+<br>
 
-#### change_working_dir_absolute
-Change the neovim working directory.<br>
+#### Change the current Neovim working directory
+Change the current Neovim working directory.  The current directory is not remembered.<br>
+
+<br>
 
 You can specify a directory in the call.
 ```
@@ -53,6 +60,7 @@ You can specify a directory in the call.
         new_wd = '~/.config/nvim'
     })
 ```
+<br>
 
 If you don't specify the new directory in the function call, nvcd will prompt you. 
 ```
