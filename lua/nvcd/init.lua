@@ -22,21 +22,25 @@ M = {}
 M.prev_wd = nil
 
 M.change_working_dir_absolute = function(opts)
+    local success = false
     local new_wd = opts.new_wd
+    local cncl_tkn = 'ak;lakjfa;lu1nxno' -- random string to check if user cancelled change
     if new_wd == nil then
-        new_wd = prompt_for_new_wd('Change directory to: ', opts.cncl_tkn)
+        new_wd = prompt_for_new_wd('Change directory to: ', cncl_tkn)
     end
-    if (new_wd == opts.cncl_tkn) then
+    if (new_wd == cncl_tkn) then
         print('Operation cancelled!')
     else
         local scrubbed_wd_path = scrub_path(new_wd)
         if is_valid_directory(scrubbed_wd_path) then
             vim.api.nvim_set_current_dir(scrubbed_wd_path)
-            print('Directory changed to: ' .. '"' .. scrubbed_wd_path .. '"')
+            print('  Success - Directory changed to: ' .. '"' .. scrubbed_wd_path .. '"')
+            success = true
         else
-            print('Invalid directory!')
+            print('  Error - Invalid directory!')
         end
     end
+    return success
 end
 
 M.swap_working_dir_absolute = function(opts)
@@ -47,7 +51,10 @@ M.swap_working_dir_absolute = function(opts)
         opts.new_wd = M.prev_wd
         M.prev_wd = nil
     end
-    M.change_working_dir_absolute(opts)
+    local success = M.change_working_dir_absolute(opts)
+    if success == false then
+        M.prev_wd = nil
+    end
 end
 
 return M
