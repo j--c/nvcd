@@ -1,5 +1,6 @@
 # nvcd
-Simple plugin to help you more easily change the Neovim working directory.
+Simple plugin to help you more easily change the Neovim working directory. I am very new to writing plugins for Neovim, so this one has some rough edges, but I am learning.
+
 
 ## Getting Started
 
