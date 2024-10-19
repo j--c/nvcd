@@ -17,3 +17,13 @@ vim.api.nvim_create_user_command(
     end,
     {}
 )
+
+vim.api.nvim_create_user_command(
+    "ChangeCwdCustom",
+    function()
+        require 'nvcd'.swap_working_dir_absolute({
+            new_wd = nil
+        })
+    end,
+    {}
+)
