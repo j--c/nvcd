@@ -5,15 +5,14 @@ Simple plugin to help you more easily change the Neovim working directory. I am 
 
 ## Getting Started
 
-<br>
 
-### Required Dependencies 
+### 1. Required Dependencies 
 
 None
 
 <br>
 
-### Installation 
+### 2. Installation 
 
 Using packer.nvim:
 ```lua
@@ -28,9 +27,7 @@ Using dein:
     call dein#add('j--c/nvcd')
 ```
 
-### Usage 
-
-<br>
+### 3. Usage 
 
 #### Swap the current Neovim working directory
 
