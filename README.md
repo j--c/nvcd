@@ -5,12 +5,9 @@ Simple plugin to help you more easily change the Neovim working directory. I am 
 
 ## Getting Started
 
-
 ### 1. Required Dependencies 
 
 None
-
-<br>
 
 ### 2. Installation 
 
