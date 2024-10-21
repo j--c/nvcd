@@ -6,6 +6,7 @@ local prompt_for_new_wd = function(prompt, cncl_tkn)
     local input_opts = {
         prompt = prompt,
         default = vim.env.HOME,
+        completion = "dir" ,
         cancelreturn = cncl_tkn
     }
     return vim.fn.input(input_opts)
