@@ -1,10 +1,17 @@
 # nvcd
 Simple plugin to help you more easily change the Neovim working directory. I am very new to writing plugins for Neovim, so this one has some rough edges, but I am learning.
 
+<br>
+
 ## Getting Started
 
+<br>
+
 ### Required Dependencies 
+
 None
+
+<br>
 
 ### Installation 
 
@@ -22,6 +29,8 @@ Using dein:
 ```
 
 ### Usage 
+
+<br>
 
 #### Swap the current Neovim working directory
 
